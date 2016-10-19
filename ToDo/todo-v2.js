@@ -8,9 +8,19 @@ commentsTextArea = document.getElementById('comments');
 inputTodo = document.getElementById('inputTodo');
 ButtonValidEdit = document.getElementById("ButtonValidEdit");
 ButtonValid = document.getElementById("ButtonValid");
+increment = 2;
+deadLineFormularField = document.getElementById("deadline_date");
+
+
+
+
+
 //BUFFER
 var taskObjectBuffer = new Task();
 var delBtnBuffer;
+var editTextBuffer;
+var id_comments;
+var id_priority;
 
 
 /*DEFAULT ENTRIES*/
@@ -19,6 +29,8 @@ var delBtnBuffer;
 toDoTest = new Task();
 toDoTest.intitule = "manger";
 toDoTest.comments = "Des commentaires";
+toDoTest.increment_value = "1";
+toDoTest.deadline = "12-05-2017";
 generateTodo(toDoTest);
 
 /*OBJECTE CONSTRUCTOR*/
@@ -28,18 +40,35 @@ function Task() {
     this.priority = "";
     this.deadline = "";
     this.comments = "";
+    this.increment_value = "";
 };
 
 
 /*-------------FUNCTIONS-------------*/
 
+/*ADD NEW OBJECT UPPON PUSHING "ADD" BUTTON*/
+function createObject() {
+    if (inputContent.value == "") {
+        alert("aucune saisie");
 
-/*ADDS INTITULATE AND DISPLAYS FORMULAR*/
+    } else {
+        var filledTask = fillObjectTask();
+        filledTask.increment_value = increment;
+        increment++;
+        taskObjectBuffer = filledTask;
+
+
+    }
+
+}
+
+/*ADDS INTITULATE AND DISPLtargetAYS FORMULAR*/
 
 
 function fillObjectTask() {
     addTask = new Task()
     addTask.intitule = inputContent.value;
+    ButtonValid.classList.toggle("show");
     toggleFormVisibility();
     return addTask;
 
@@ -74,7 +103,6 @@ function handlerFormData(task) {
 }
 
 //GENERATE A NEW TODO ENTRY USING PREVIOUSLY FILLED OBJECT TASK
-
 function generateTodo(task) {
 
     /*BLOCKS CREATION*/
@@ -86,44 +114,71 @@ function generateTodo(task) {
 
     var todo_buttonDel = document.createElement("input");
     todo_buttonDel.type = "button";
-    todo_buttonDel.value = "X";
+    todo_buttonDel.value = "Achevée";
+    todo_buttonDel.className = "done_button"
 
     //CROSSING TASK INTITULATE UPPON CLIKING "X" BUTTON
     todo_buttonDel.addEventListener("click", function() {
-    createSpan.classList.toggle("crossed");
+        createSpan.classList.toggle("crossed");
     });
 
     var todo_buttonEdit = document.createElement("input");
     todo_buttonEdit.type = "button";
     todo_buttonEdit.value = "Edit";
+    todo_buttonEdit.className = "edit_button"
 
-    // todo_buttonEdit.addEventListener("click", function() {
-    // ButtonValidEdit.classList.toggle("show");
-    //
-    //   prioritySelect = task.priority;
-    //   commentsTextArea  = task.comments;
-    //   toggleFormVisibility();
-    //   ButtonValidEdit.addEventListener("click", function() {
-    //   create_Comments.innerHTML = "Commentaires : " + commentsTextArea;
-    //   ButtonValidEdit.classList.toggle("show");
-    //   toggleFormVisibility();
-    //
-    //
-    //
-    //
-    //   });
-    // });
 
     createSpan.innerHTML = task.intitule;
+    createSpan.className = "task_content"; 
 
     //comments AND Deadline SPANS GENERATION
 
     var create_Deadline = document.createElement("span");
-    create_Deadline.innerHTML = "Deadline : " + task.deadline;
+
+    create_Deadline.innerHTML = " Deadline : " + task.deadline;
+    create_Deadline.setAttribute("id", "deadline" + task.increment_value);
 
     var create_Comments = document.createElement("span");
-    create_Comments.className = "comments_span";
+    create_Comments.setAttribute("id", "comments" + task.increment_value);
     create_Comments.innerHTML = "Commentaires : " + task.comments;
+    create_Comments.className = "commentaries_box";
+
+    var create_priority = document.createElement("span");
+    // create_priority.setAttribute("id-priority", task.increment_value);
+    // create_priority.innerHTML = "Priorité : " + task.priority;
+
+    //Local Storage
+
+    var store_object = JSON.stringify(task);
+
+    //EDIT EVENT
+    todo_buttonEdit.addEventListener("click", function(e) {
+        ButtonValidEdit.classList.toggle("show");
+        var comments = e.target.nextElementSibling;
+
+        console.log(comments);
+        // console.log(this);
+        console.log(this.parentNode);
+
+        id_comments = comments.getAttribute('id');
+
+
+
+        // deadline = comments.nextElementSibling;
+        // deadLineFormularField.value = deadline.innerHTML;
+        toggleFormVisibility();
+
+        ButtonValidEdit.addEventListener("click", function(e) {
+            console.log(id_comments);
+            document.getElementById(id_comments).innerHTML = document.getElementById('comms').value;
+            ButtonValidEdit.classList.toggle("show");
+            toggleFormVisibility();
+
+
+
+
+        });
+    });
 
 
     /*CHILDREN IMPLEMENTATION*/
@@ -133,6 +188,7 @@ function generateTodo(task) {
     createLi.appendChild(todo_buttonDel);
     createLi.appendChild(todo_buttonEdit);
     createLi.appendChild(create_Comments);
+    createLi.appendChild(create_priority);
     createLi.appendChild(create_Deadline);
 
 
@@ -145,23 +201,16 @@ function generateTodo(task) {
 
 
 
-/*EVENTS*/
+/*-------------------------------EVENTS------------------------*/
+
+/*CLOSE FORMULAR EVENT*/
+
+document.getElementById("closeBtn").addEventListener("click", toggleFormVisibility);
 
 
 //CHECK IF THERE IS AN ENTRY AND LAUNCH FILLING APPLICATION
 
-addToDoButton.addEventListener('click', function() {
-    if (inputContent.value == "") {
-        alert("aucune saisie");
-
-    } else {
-        var filledTask = fillObjectTask();
-        taskObjectBuffer = filledTask;
-        ButtonValid.classList.toggle("show");
-
-    }
-
-});
+addToDoButton.addEventListener('click', createObject);
 
 //LAUCHED handlerFormData, generateTodo WITH RESULTING OBJECT WHILE CLOSING FORMULAR UPPON VALIDATION
 
@@ -172,4 +221,4 @@ ButtonValid.addEventListener("click", function() {
     toggleFormVisibility();
     ButtonValid.classList.toggle("show");
 
-  });
+});
