@@ -1,8 +1,51 @@
 * {
-    text-align: center;
+    /*text-align: center;*/
+}
+
+
+
+
+
+body {
+    background-color: #655bea;
+}
+
+header h3 {
+    font-style: italic;
+}
+
+nav {
+    display: none;
+}
+
+nav.show {
+    display: block;
 }
 
 section {
-    border-radius: 20px 20px;
-    border: 2px black solid;
+    opacity: 0;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    transition: 1s;
+}
+
+section a {
+    text-decoration: none;
+    color: black;
+}
+
+section.show {
+    opacity: 1;
+}
+
+#menu {
+    text-align: center;
+    padding: 20px;
+    border-radius: 50px;
+    background-color: white;
+    color: #241b9b;
+    margin-top: 50px;
+    margin-top: 50px;
+    width: 10%;
 }

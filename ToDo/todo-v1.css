@@ -1,0 +1,17 @@
+#popup, #ButtonValid, #ButtonValidEdit {
+  display:none;
+}
+
+#popup.show, #ButtonValid.show, #ButtonValidEdit.show  {
+  display: block;
+}
+.todo_listing {
+
+ }
+
+.todo_listing.hide {
+    filter: blur(2px);
+ }
+.crossed {
+  text-decoration: line-through;
+}

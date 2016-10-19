@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> todo Version 2 </title>
+    <link rel="stylesheet" href="todo-v1.css" media="screen" title="no title">
+
+</head>
+
+
+
+<body>
+
+    <header id="ajout" class="todo_listing">
+        <form class="" action="index.html" method="post">
+            <input id="inputTodo" type="text" name="name" placeholder="Hit a task name" onKeyPress="if (event.keyCode == 13) generateTodo()" />
+            <input id="addToDoButton" type="button" name="ajouter" value="Ajouter" />
+            <input type="reset" name="name" value="Effacer" id="delButton">
+        </form>
+    </header>
+
+    <div class="todo_listing">
+        <ul id="toDos">
+            <li>
+                <span> tache 1 </span>
+
+            </li>
+
+        </ul>
+    </div>
+    <section id="popup">
+        <fieldset>
+            <legend>Personnalisez votre tâche</legend>
+
+            <div class="priority">
+
+
+                <label for="selecteur_importance">Selectionnez la priorité</label>
+                <select class="" name="selecteur_importance" id="selecteur_importance">
+            <option value="timp">Très important</option>
+            <option value="imp">Important</option>
+            <option value="sec">Secondaire</option>
+          </select>
+
+            </div>
+            <div id="comments">
+
+                <label for="comms">Ajoutez un commentaire</label>
+                <textarea id="comms" name="name" rows="8" cols="20"></textarea>
+            </div>
+            <div class="deadline">
+                <label for="deadline_date">Choisissez une deadline</label>
+                <input type="date" name="deadline_date" id="deadline_date" value="">
+            </div>
+            <div id="validate">
+              <button id = "ButtonValid" type="button" name="button">Valider</button>
+              <button id = "ButtonValidEdit" type="button" name="button">Valider l'edition</button>
+            </div>
+
+
+    </section>
+    </fieldset>
+    <script type="text/javascript" src="todo-v2.js">
+    </script>
+
+
+</body>
+
+</html>
