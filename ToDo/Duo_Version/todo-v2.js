@@ -101,6 +101,32 @@ function handlerFormData(task) {
 
 
 }
+function requestSomesTasks() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://10.105.49.50:8090/api/v1/todos");
+    xhr.onload = function(e) {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+                gotTasks = JSON.parse(xhr.responseText);
+
+                for (var i = 0; i < gotTasks.length; i++) {
+                  var toBeGeneratedTasks = new Task();
+                  toBeGeneratedTasks.intitule = gotTasks[i].task;
+                  toBeGeneratedTasks.priority = gotTasks[i].priority;
+                  generateTodo(toBeGeneratedTasks);
+                }
+            } else {
+                console.error(xhr.statusText);
+            }
+        }
+    };
+    xhr.onerror = function(e) {
+        console.error(xhr.statusText);
+    };
+    xhr.send(null);
+
+}
 
 //GENERATE A NEW TODO ENTRY USING PREVIOUSLY FILLED OBJECT TASK
 function generateTodo(task) {
@@ -129,7 +155,7 @@ function generateTodo(task) {
 
 
     createSpan.innerHTML = task.intitule;
-    createSpan.className = "task_content"; 
+    createSpan.className = "task_content";
 
     //comments AND Deadline SPANS GENERATION
 
@@ -147,9 +173,10 @@ function generateTodo(task) {
     // create_priority.setAttribute("id-priority", task.increment_value);
     // create_priority.innerHTML = "Priorité : " + task.priority;
 
-    //Local Storage
+    //HTTP REQUEST
 
-    var store_object = JSON.stringify(task);
+
+
 
     //EDIT EVENT
     todo_buttonEdit.addEventListener("click", function(e) {
@@ -222,3 +249,5 @@ ButtonValid.addEventListener("click", function() {
     ButtonValid.classList.toggle("show");
 
 });
+
+document.getElementById("RequestButton").addEventListener("click", requestSomesTasks);

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<!-- A SMALL TODO APP BY LUCAS FOURTEAU & REMI VANEL-->
+
+<head>
+    <meta charset="utf-8">
+    <title> ToDo Version 3 </title>
+    <link rel="stylesheet" href="todo-v3.css" media="screen" title="no title">
+</head>
+
+<body>
+  <h1 id="main_title">T0 D0 LIST</h1>
+
+    <header id="addField" class="mainDisplay">
+        <input type="text" placeholder="Hit a task name"  id="inputField" name="name" value="">
+        <button id="addButton" type="button" name="button">Add task</button>
+        <button id="htmlReq" type="button" name="button">HTML Request</button>
+        <button id="deleteAllTasksBtn" type="button" name="button">Delete all</button>
+        <div id="selfRequestDiv" class="">
+          <h1>Do you want to send a HTML request ?</h1>
+          <button type="button" name="button" id="yesToRequest">Yes</button>
+          <button type="button" name="button" id="noToRequest">No</button>
+        </div>
+    </header>
+    <div class="mainDisplay">
+        <ul id="toDos"></ul>
+    </div>
+
+
+    <section id="addFormular">
+        <fieldset>
+
+            <div>
+                <label for="addPrioritySelector">Selectionnez la priorité</label>
+                <select class="" name="addPrioritySelector" id="addPrioritySelector">
+                    <option value="1">Très important</option>
+                    <option value="2">Important</option>
+                    <option value="3">Secondaire</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="addDeadlineDate">Choisissez une deadline</label>
+                <input type="date" name="addDeadlineDate" id="addDeadlineDate" value="">
+            </div>
+
+            <div>
+                <button id="addValidBtn" type="button" name="button">Valider</button>
+            </div>
+            <div id="addCloseBtn">
+                <button type="button" name="button">X</button>
+            </div>
+        </fieldset>
+    </section>
+
+
+    <section id="editFormular">
+        <fieldset>
+          <div>
+            <label for="editTaskNameField"></label>
+            <input id= "editTaskNameField" type="text" name="editTaskNameField" value="">
+          </div>
+            <div>
+                <label for="EditPrioritySelector">Selectionnez la priorité</label>
+                <select class="" name="EditPrioritySelector" id="editPrioritySelector">
+                    <option value="1">Très important</option>
+                    <option value="2">Important</option>
+                    <option value="3">Secondaire</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="editDeadlineDate">Choisissez une deadline</label>
+                <input type="date" name="editDeadlineDate" id="editDeadlineDate" value="">
+            </div>
+            <div>
+                <button id="editValidBtn" type="button" name="button">Valider l'edition</button>
+            </div>
+            <div>
+                <button id="editCloseBtn" type="button" name="button">X</button>
+            </div>
+        </fieldset>
+    </section>
+
+
+
+    <script type="text/javascript" src="todo-v3.js">
+    </script>
+
+</body>
+
+</html>

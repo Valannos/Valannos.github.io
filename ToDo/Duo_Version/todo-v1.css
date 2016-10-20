@@ -9,7 +9,7 @@ form {
     padding: 10px;
 }
 
-#addToDoButton, #delButton, .edit_button, .done_button {
+#addToDoButton, #delButton, .edit_button, .done_button #RequestButton {
     margin: 10px;
     font-size: 1.5em;
     width: 7em;

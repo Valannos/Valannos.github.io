@@ -1,0 +1,79 @@
+#addFormular, #editFormular, #selfRequestDiv {
+    display: none;
+}
+
+#addFormular.show, #editFormular.show, #selfRequestDiv.show {
+    display: block;
+}
+
+.mainDisplay {
+    display: block;
+}
+
+.mainDisplay.hide {
+    display: none;
+}
+
+p.priority1 {
+    background-color : red;
+    font-weight: bolder;
+}
+
+p.priority2 {
+    background-color: orange;
+}
+
+p.priority3 {
+    background-color: green;
+}
+
+p.crossed {
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+#addField {
+    background-color: #8425ea;
+    padding: 15px;
+}
+
+button  {
+    font-size: larger;
+    outline: none;
+    border: none;
+    padding: 15px;
+    font-family: arial;
+    background-color: #32cde5;
+    transition: 0.4s;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #2b95c6
+}
+
+ul {
+    background-color: #6100ff;
+    text-decoration: none;
+    padding: 20px;
+}
+
+p {
+  font-family: arial;
+  width: 30%;
+  padding: 15px;
+  font-size: large;
+}
+li {
+
+border-top: 2px black solid;
+
+}
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+}
+ul
+{
+list-style-type: none;
+}

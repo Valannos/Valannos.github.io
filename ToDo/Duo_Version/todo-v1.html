@@ -19,6 +19,7 @@
             <input id="inputTodo" type="text" name="name" placeholder="Hit a task name" onKeyPress="if (event.keyCode == 13) createObject()" />
             <input id="addToDoButton" type="button" name="ajouter" value="&#10003" />
             <input type="reset" name="name" value="X" id="delButton">
+            <input type="button" name="name" value="Server" id="RequestButton">
         </form>
     </header>
 
@@ -38,9 +39,9 @@
 
                 <label for="selecteur_importance">Selectionnez la priorité</label>
                 <select class="" name="selecteur_importance" id="selecteur_importance">
-            <option value="timp">Très important</option>
-            <option value="imp">Important</option>
-            <option value="sec">Secondaire</option>
+            <option value="1">Très important</option>
+            <option value="2">Important</option>
+            <option value="3">Secondaire</option>
           </select>
 
             </div>
