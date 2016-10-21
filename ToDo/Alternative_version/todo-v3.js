@@ -27,16 +27,16 @@ document.getElementById("yesToRequest").addEventListener("click", toggleSelfRequ
 document.getElementById("noToRequest").addEventListener("click", toggleSelfRequestDiv);
 
 function toggleSelfRequestDiv() {
-  document.getElementById("selfRequestDiv").classList.toggle("show");
+    document.getElementById("selfRequestDiv").classList.toggle("show");
 }
 
 deleteAllTasksBtn.addEventListener("click", function() {
 
 
-var allLi = document.querySelectorAll("li");
-for (var i = 0; i < allLi.length; i++) {
-  allLi[i].remove();
-}
+    var allLi = document.querySelectorAll("li");
+    for (var i = 0; i < allLi.length; i++) {
+        allLi[i].remove();
+    }
 })
 
 /*OBJECT CONSTRUCTOR*/
@@ -46,6 +46,7 @@ function Task(name, incr) {
     this.priority = "";
     this.incr = incr;
     this.deadline = "";
+    this.httpId = "";
 }
 
 
@@ -115,6 +116,12 @@ function taskElementsGenerator(task) {
         console.log(task.deadline);
 
     }
+    if (task.httpId != "") {
+        console.log(task.httpId);
+        var delHttpTask = document.createElement("button");
+        delHttpTask.innerHTML = "Delete task on server";
+        delHttpTask.id = task.httpId;
+    }
     taskUl.appendChild(createLi);
     createLi.appendChild(createP);
     createLi.appendChild(createDeadline);
@@ -122,6 +129,10 @@ function taskElementsGenerator(task) {
     createLi.appendChild(createSupprBtn);
     createLi.appendChild(createPostBtn);
     createLi.appendChild(createEditBtn);
+    if (task.httpId != "") {
+        createLi.appendChild(delHttpTask);
+        delHttpTask.addEventListener("click", taskOnServerDelete);
+    }
 
     createSupprBtn.addEventListener("click", removeTask);
     createCrossBtn.addEventListener("click", crossTask);
@@ -159,9 +170,9 @@ editValidBtn.addEventListener("click", confirmEdit);
 
 function confirmEdit(e) {
 
-document.getElementById(bufferTask).innerHTML = editTaskNameField.value;
-document.getElementById(bufferTask).className = "priority" + editPrioritySelector.options[editPrioritySelector.selectedIndex].value;
-toggleEditFormular();
+    document.getElementById(bufferTask).innerHTML = editTaskNameField.value;
+    document.getElementById(bufferTask).className = "priority" + editPrioritySelector.options[editPrioritySelector.selectedIndex].value;
+    toggleEditFormular();
 
 
 }
@@ -217,6 +228,8 @@ function requestSomesTasks() {
                     var toBeGeneratedTasks = new Task();
                     toBeGeneratedTasks.taskName = gotTasks[i].task;
                     toBeGeneratedTasks.priority = gotTasks[i].priority;
+                    toBeGeneratedTasks.httpId = gotTasks[i].id;
+
                     taskElementsGenerator(toBeGeneratedTasks);
                 }
             } else {
@@ -265,4 +278,39 @@ function taskSave(e) {
     };
     taskStr = JSON.stringify(taskRecipient);
     xhr.send(taskStr);
+};
+
+
+
+
+
+
+function taskOnServerDelete(e) {
+    var taskPriority
+    var taskName
+    var taskStr;
+    var taskRecipient;
+
+    var xhr = new XMLHttpRequest();
+
+    var url = "http://10.105.49.50:8090/api/v1/todo/" + e.target.id;
+    xhr.open("DELETE", url);
+    xhr.onload = function(e) {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 201) {
+                console.log(xhr.responseText);
+
+            }
+        } else {
+            console.error(xhr.statusText);
+        }
+    }
+    xhr.onerror = function(e) {
+        console.error(xhr.statusText);
+    };
+
+
+
+    xhr.send(null);
+    e.target.parentNode.remove();
 };

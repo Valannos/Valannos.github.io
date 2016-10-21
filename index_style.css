@@ -2,9 +2,20 @@
     /*text-align: center;*/
 }
 
+header {
+    display: flex;
+    border: 2px solid black;
+    width: 100%;
+    flex-direction: column;
+    height: 30em;
+}
 
-
-
+header div h1, header div h3, header h1 {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    border: 3px solid black;
+}
 
 body {
     background-color: #655bea;
@@ -15,28 +26,23 @@ header h3 {
 }
 
 nav {
-    display: none;
-}
-
-nav.show {
-    display: block;
-}
-
-section {
+    display: flex;
+    height: 30em;
+    border: 2px black solid;
     opacity: 0;
     margin-right: auto;
     margin-bottom: 20px;
     padding: 10px;
-    transition: 1s;
+    transition: 0.4s;
+}
+
+nav.show {
+    opacity: 1;
 }
 
 section a {
     text-decoration: none;
     color: black;
-}
-
-section.show {
-    opacity: 1;
 }
 
 #menu {
@@ -47,5 +53,5 @@ section.show {
     color: #241b9b;
     margin-top: 50px;
     margin-top: 50px;
-    width: 10%;
+    width: 20%;
 }

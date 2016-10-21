@@ -1,0 +1,48 @@
+ nav{
+  display: none;
+
+}
+
+header {
+  display: block;
+}
+
+
+ nav.show{
+  display: block;
+  border : 3px solid black;
+
+
+}
+
+header {
+  border : 3px solid black;
+}
+button {
+  opacity: 1;
+  transition:0.4s;
+  border:none;
+  padding: 20px;
+  border-radius: 50px;
+  outline: none;
+
+}
+button.fade {
+  opacity: 0.6;
+}
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sectionTitles {
+  background-color: grey;
+  opacity: 1;
+  transition: 0.6s;
+}
+
+.sectionTitles:hover{
+  opacity: 0.6;
+
+}

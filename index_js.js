@@ -1,16 +1,12 @@
-var menu = document.getElementById('menu');
-var allSectionsSelector = document.querySelectorAll("section");
+var menuBtn = document.getElementById('menu');
+
 var navSelector = document.querySelector("nav");
-menu.addEventListener('mouseover', function() {
-    for (var i = 0; i < allSectionsSelector.length; i++) {
-        allSectionsSelector[i].classList.toggle('show');
-    }
-
-});
 
 
-menu.addEventListener('mouseout', function() {
-    for (var i = 0; i < allSectionsSelector.length; i++) {
-        allSectionsSelector[i].classList.toggle('show');
-    }
+
+
+menuBtn.addEventListener('click', function() {
+  navSelector.classList.toggle("show");
+  menuBtn.classList.toggle("fade");
+
 });
