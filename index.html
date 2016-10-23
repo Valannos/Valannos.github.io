@@ -5,26 +5,23 @@
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="stylesheet" href="index_style_al.css" media="screen" title="no title">
+
     <title></title>
 </head>
 
 <body>
-
-
-
     <div id="global_display">
-
-
         <header>
             <h1>Rémi Vanel</h1>
-            <h3>Junior Developper, former Organic Chemist (PhD)</h3>
-
+            <h3>Junior Developper in apprenticeship, former Organic Chemist (PhD)</h3>
             <button type="button" name="button" id="menu"><h2>Click-me</h2></button>
-
         </header>
-
         <nav>
-
+            <section class="bio">
+                <h2>Short biography</h2>
+                <p>After a six years-old carrier as an organic chemist, I've recently decided to perfomed a professionnal retraining in IT to explore new opportunities and aiming to find a job related to personnal interests</p>
+                <p>Following a short period of self-education in several langages through various websites, I've joined a professionnal formation stated this fall</p>
+            </section>
 
             <section class="links">
 
@@ -39,8 +36,10 @@
             </section>
 
             <section class="projets">
-                <h1 class="sectionTitles">Current projects</h1>
-                <a href="ToDo/Alternative_version/todo-v3.html">ToDoList</a> <br>
+                <h2 class="sectionTitles">Current projects</h2>
+                <ul>
+                  <li><a href="ToDo/Alternative_version/todo-v3.html">ToDoList</a> <br></li>
+                </ul>
 
             </section>
             <section class="lang">
@@ -48,7 +47,7 @@
                 <ul id="ulLang">
                     <li> <i class="fa fa-html5 fa-2x" aria-hidden="true"></i> HTML5</li>
                     <li> <i class="fa fa-css3 fa-2x" aria-hidden="true"></i> CSS3</li>
-                    <li>JavaScript</li>
+                    <li>JavaScript and jQuery</li>
                     <li>Java</li>
                     <li>C#</li>
 
@@ -57,8 +56,29 @@
 
             </section>
         </nav>
-        <script type="text/javascript" src="index_js.js">
+        <!-- <script type="text/javascript" src="index_js.js"></script> -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+             $section = $("section");
+             $nav = $("nav");
+             $h2_title = $("nav h2");
+            $nav.hide();
+            $("#menu").on("click", function() {
+                $nav.toggle(1000);
+
+                $section.find("ul,p").hide();
+                // $section.find("p").hide();
+
+
+            });
+            $h2_title.on("click", function(e) {
+              var target = $(e.target);
+              target.siblings().toggle();
+
+            });
         </script>
+
+
 
     </div>
 </body>
