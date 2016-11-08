@@ -25,7 +25,7 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
 ?>
 
 
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>title</title>
@@ -42,10 +42,8 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
 
                 <div class="col-lg-12 text-capitalize"><h1>Welcome to tracklist !</h1></div>
 
-
-
-
             </div>
+
 
             <?php
             /* STRATING FROM THIS POINT, ALL FIELDS, BUTTONS ETC... WILL BE DISPLAYED ONLY 
@@ -132,45 +130,50 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
                     ?>
 
                 </form>
-            </nav>
 
-
-
-
-
-            <?php
-            /* STRATING FROM THIS POINT, ALL FIELDS, BUTTONS ETC... WILL BE DISPLAYED ONLY 
-             * IF A VALID USER IS LOGGED
-             */
-        } else {
-
-            echo '<h3>Your are currently logged as ' . $_SESSION['currentUser'] . '.</h3>';
-            if ($_SESSION['currentUser'] === 'admin') {
-                ?>
-
-                <a class="btn btn-primary" href="accueil.php"> <i class="fa fa-user-md" aria-hidden="true"></i> Add track</a>
-                <a class="btn btn-primary" href=""> <i class="fa fa-user-md" aria-hidden="true"></i> Manage users</a>
                 <?php
+                /* STRATING FROM THIS POINT, ALL FIELDS, BUTTONS ETC... WILL BE DISPLAYED ONLY 
+                 * IF A VALID USER IS LOGGED
+                 */
+            } else {
+
+                echo '<div class="row"><h3>Your are currently logged as ' . $_SESSION['currentUser'] . '.</h3></div>'
+                . '<div class="row">';
+
+                if ($_SESSION['currentUser'] === 'admin') {
+                    ?>
+                    <div class="col-md-5">
+                        <div class="btn-group btn-group-justified">
+                            <a class="btn btn-primary" href="accueil.php"> <i class="fa fa-user-md" aria-hidden="true"></i> Add track</a>
+                            <a class="btn btn-primary" href="accueil_author.php"> <i class="fa fa-user" aria-hidden="true"></i> Add author</a>
+                            <a class="btn btn-primary" href=""> <i class="fa fa-user-md" aria-hidden="true"></i> Manage users</a>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>                    
+                <div class="col-md-7">
+                    <div class="btn-group  btn-group-justified">
+                        <a class="btn btn-primary" href="author_list.php"><i class="fa fa-users" aria-hidden="true"></i> Access authorlist</a>
+                        <a class="btn btn-info" href="test_SQL.php"><i class="fa fa-music" aria-hidden="true"></i> Access tracklist</a>
+                        <a class="btn btn-success" href="playlist_list.php"><i class="fa fa-headphones" aria-hidden="true"></i> Access playlist</a>
+                        <a class="btn btn-warning" href="create_playlist.php"><i class="fa fa-headphones" aria-hidden="true"></i> Create playlist</a>
+                    </div>
+                </div>
+                <?php
+                echo '</div>';
             }
             ?>
-
-            <a class="btn btn-info" href="test_SQL.php"><i class="fa fa-music" aria-hidden="true"></i> Access tracklist</a>
-            <a class="btn btn-success" href="playlist_list.php"><i class="fa fa-headphones" aria-hidden="true"></i> Access playlist</a>
-            <a class="btn btn-warning" href="create_playlist.php"><i class="fa fa-headphones" aria-hidden="true"></i> Create playlist</a>
-            <?php
-        }
-
-
-
-
-        if (isset($_SESSION['currentUser'])) {
-            echo '<div class="col-md-4">';
-            echo '<a class = "btn btn-danger" href="logout.php"><i class="fa fa-user-times" aria-hidden="true"></i> Click here to disconnect</a>';
-            echo '</div> ';
-        }
-        ?>
-
-
+            <div class="row">
+                <?php
+                if (isset($_SESSION['currentUser'])) {
+                    echo '<br><div class="col-md-12">';
+                    echo '<a class = "btn btn-danger btn-block" href="logout.php"><i class="fa fa-user-times" aria-hidden="true"></i> Click here to disconnect</a>';
+                    echo '</div> ';
+                }
+                ?>
+            </div>
+        </nav>
 
     </body>
 </html>

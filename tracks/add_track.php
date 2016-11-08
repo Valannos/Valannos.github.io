@@ -23,11 +23,11 @@ if (empty($_POST['title']) || empty($_POST['year']) || empty($_POST['author']) |
     $_SESSION['filled'] = false;
     header('location:accueil.php');
 } else {
-    $insert_track = $pdo->prepare('INSERT INTO track (title, author, year, duration) VALUES (:title, :author, :year, :duration)');
+    $insert_track = $pdo->prepare('INSERT INTO track (title, authorid, year, duration) VALUES (:title, :authorid, :year, :duration)');
     $insert_track->bindValue('title', $_POST['title']);
-    $insert_track->bindValue('author', $_POST['author']);
-    $insert_track->bindValue('year', $_POST['year']);
-    $insert_track->bindValue('duration', $_POST['duration']);
+    $insert_track->bindValue('authorid', (int) $_POST['author']);
+    $insert_track->bindValue('year', (int) $_POST['year']);
+    $insert_track->bindValue('duration', (int) $_POST['duration']);
     $insert_track->execute();
     $_SESSION['addOk'] = true;
     header('Location:' . $_SERVER['PHP_SELF']);

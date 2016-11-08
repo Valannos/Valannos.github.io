@@ -30,14 +30,14 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
             <tbody>
 
                 <?php
-                $reponse = $pdo->prepare("SELECT * FROM track WHERE year > :year");
+                $reponse = $pdo->prepare("SELECT t.id, t.title, a.name, t.year, t.duration FROM track t INNER JOIN author a ON a.id = t.authorid WHERE year > :year");
                 $reponse->bindValue("year", 0000);
                 $reponse->execute();
 
                 while ($donnees = $reponse->fetch()) {
                     echo '<tr>';
                     echo '<td class="text-center"><strong>' . $donnees['title'] . '</td>';
-                    echo '<td class="text-center">' . $donnees['author'] . '</td>';
+                    echo '<td class="text-center">' . $donnees['name'] . '</td>';
                     echo '<td class="text-center">' . $donnees['year'] . '</td>';
                     echo '<td class="text-center">' . $donnees['duration'] . '</td>';
                     if ($_SESSION['currentUser'] === 'admin') {
