@@ -16,7 +16,9 @@ $year = $select_track->fetch()['year'];
 $select_track->execute();
 $duration = $select_track->fetch()['duration'];
 $select_track->execute();
-$author = $select_track->fetch()['author'];
+$authorId = $select_track->fetch()['authorid'];
+$select_track->execute();
+$genreId = $select_track->fetch()['genreid'];
 $select_track->execute();
 ?>
 <html>
@@ -48,7 +50,38 @@ $select_track->execute();
                     </div>
                     <div class="labelfield">
                         <label for="author" >Artiste Name</label>
-                        <input  value="<?php echo $author ?>" type="text" id="author" name="author" placeholder="Ex. Iron Maiden">
+                        <select id="author" name="author">
+                            <?php
+                            $authors = $pdo->prepare('SELECT * FROM author');
+                            $authors->execute();
+                            while ($donnees = $authors->fetch()) {
+                                if ($authorId == $donnees['id']) {
+                                    echo '<option value="' . $donnees['id'] . '" selected="selected">';
+                                } else {
+                                    echo '<option value="' . $donnees['id'] . '">';
+                                }
+                                echo $donnees['name'];
+                                echo '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="labelfield">
+                        <label for="genre" >Genre</label>
+                        <select id="genre" name="genre">
+                            <?php
+                            $genres = $pdo->prepare('SELECT * FROM genre');
+                            $genres->execute();
+                            while ($donnees = $genres->fetch()) {
+                                if ($genreId == $donnees['id']) {
+                                    echo '<option value="' . $donnees['id'] . '" selected="selected">';
+                                } else {
+                                    echo '<option value="' . $donnees['id'] . '">';
+                                }
+                                echo $donnees['name'];
+                                echo '</option>';                            }
+                            ?>
+                        </select>
                     </div>
                     <div>
                         <input  type="submit" value="Confirm edit track">

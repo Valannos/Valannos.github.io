@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 07 Novembre 2016 à 16:24
+-- Généré le :  Mar 08 Novembre 2016 à 14:28
 -- Version du serveur :  5.7.16-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.8-0ubuntu0.16.04.3
 
@@ -19,6 +19,46 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `Test`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `author`
+--
+
+CREATE TABLE `author` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `author`
+--
+
+INSERT INTO `author` (`id`, `name`) VALUES
+(4, 'John O&#39;Callagan'),
+(5, 'Sven Väth'),
+(6, 'Rank1'),
+(7, 'Markus Schuls'),
+(8, 'xcxcw');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `genre`
+--
+
+CREATE TABLE `genre` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `genre`
+--
+
+INSERT INTO `genre` (`id`, `name`) VALUES
+(1, 'Classic');
 
 -- --------------------------------------------------------
 
@@ -44,6 +84,14 @@ CREATE TABLE `playlist_user` (
   `img_url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `playlist_user`
+--
+
+INSERT INTO `playlist_user` (`playlist_id`, `user_id`, `playlist_name`, `img_url`) VALUES
+(56, 6, 'trucmuch', 'default.png'),
+(57, 10, 'sfddsf', 'default.png');
+
 -- --------------------------------------------------------
 
 --
@@ -53,24 +101,18 @@ CREATE TABLE `playlist_user` (
 CREATE TABLE `track` (
   `id` int(11) NOT NULL,
   `title` varchar(120) NOT NULL,
-  `author` varchar(120) NOT NULL,
+  `authorid` int(11) NOT NULL,
   `year` int(11) NOT NULL,
-  `duration` int(11) NOT NULL
+  `duration` int(11) NOT NULL,
+  `genreid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `track`
 --
 
-INSERT INTO `track` (`id`, `title`, `author`, `year`, `duration`) VALUES
-(1, 'Metal Meltdown', 'Judas Priest', 1990, 500),
-(2, 'MidnightMover', 'Accept', 1990, 502),
-(3, 'Eagle Fly Free', 'Helloween', 1986, 500),
-(6, 'I Want out', 'Helloween', 1986, 500),
-(18, 'Motorbreath', 'Metallica', 1983, 5000),
-(19, 'Trollhammaren', 'Finntroll', 2005, 700),
-(20, 'Häxbrigd', 'Finntroll', 2013, 5000),
-(23, 'cacaboudin', 'cacaprout', 2010, 500);
+INSERT INTO `track` (`id`, `title`, `authorid`, `year`, `duration`, `genreid`) VALUES
+(25, 'LE titre', 6, 2100, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -93,11 +135,25 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `email`) VALUES
 (1, 'robert', 'robertdu29', 'robert@bla.fr'),
 (2, 'lucien', 'luciendu29', 'lucien@bla.fr'),
 (4, 'josé', '$2y$10$r2f6Wzsu8.71ihGZujNWy.cx91ULG52Lu.GDIWc/5vQ2tgwItlEgO', 'none'),
-(6, 'admin', '$2y$10$IpNFgqx6reXcODwu5MZm7.bsIHs/vD3P..YAm3Nv89YoHHNjvwrnm', 'none');
+(6, 'admin', '$2y$10$IpNFgqx6reXcODwu5MZm7.bsIHs/vD3P..YAm3Nv89YoHHNjvwrnm', 'none'),
+(10, 'root', '$2y$10$YR.ZZOSnQRLxoM9wN.9ZueNHNumko8yJEjTtgIJJwqgYHaRhrJNwu', 'none'),
+(11, 'admin', '$2y$10$AzPrN8CIgm5pTcHjHzdgRube3RySD96NdZ9Tt00x1K0snrveS1mfK', 'none');
 
 --
 -- Index pour les tables exportées
 --
+
+--
+-- Index pour la table `author`
+--
+ALTER TABLE `author`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `genre`
+--
+ALTER TABLE `genre`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `playlist_track`
@@ -116,7 +172,9 @@ ALTER TABLE `playlist_user`
 -- Index pour la table `track`
 --
 ALTER TABLE `track`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`,`authorid`,`genreid`),
+  ADD KEY `Delete from author` (`authorid`),
+  ADD KEY `Delete from genre` (`genreid`);
 
 --
 -- Index pour la table `user`
@@ -129,20 +187,30 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT pour la table `author`
+--
+ALTER TABLE `author`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT pour la table `genre`
+--
+ALTER TABLE `genre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT pour la table `playlist_user`
 --
 ALTER TABLE `playlist_user`
-  MODIFY `playlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `playlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT pour la table `track`
 --
 ALTER TABLE `track`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Contraintes pour les tables exportées
 --
@@ -158,6 +226,13 @@ ALTER TABLE `playlist_track`
 --
 ALTER TABLE `playlist_user`
   ADD CONSTRAINT `Supress_a_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `track`
+--
+ALTER TABLE `track`
+  ADD CONSTRAINT `Delete from author` FOREIGN KEY (`authorid`) REFERENCES `author` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Delete from genre` FOREIGN KEY (`genreid`) REFERENCES `genre` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

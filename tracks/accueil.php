@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+/* Driver definition for SQL request */
+
+define('SQL_DSN', 'mysql:host=localhost;dbname=Test;charset=utf8');
+define('SQL_USER', 'root');
+define('SQL_PASSWORD', 'admin');
+
+$pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
+
 
 if (!isset($_SESSION['id'])) {
     $_SESSION['id'] = 1;
@@ -59,14 +67,36 @@ if (!(isset($_SESSION['addOK']))) {
                 <div class="form-group">
                     <label class="control-label col-md-offset-2 col-md-2" for="author" >Artiste Name</label>
                     <div class="col-md-4">
-                        <input class= "form-control" type="text" id="author" name="author" placeholder="Ex. Iron Maiden">
+                        <select class="form-control" id="author" name="author">
+                            <?php
+                            $authors = $pdo->prepare('SELECT * FROM author');
+                            $authors->execute();
+                            while ($donnees = $authors->fetch()) {
+                                echo '<option value="' . $donnees['id'] . '">' . $donnees['name'] . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-offset-2 col-md-2" for="genre" >Genre</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="genre" name="genre">
+                            <?php
+                            $genres = $pdo->prepare('SELECT * FROM genre');
+                            $genres->execute();
+                            while ($donnees = $genres->fetch()) {
+                                echo '<option value="' . $donnees['id'] . '">' . $donnees['name'] . '</option>';
+                            }
+                            ?>
+                        </select>
                     </div>
                 </div>
                 <div class="text-center">
                     <input  type="text" value="true" name="form_yes" hidden>
-                    
+
                     <input class="btn btn-success"  type="submit" value="Submit track to database">
-                  
+
                 </div>  
 
 
