@@ -19,57 +19,74 @@ if (!(isset($_SESSION['addOK']))) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="../master.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" > 
         <title>title</title>
-        
+
 
     </head>
     <body>
+        <div class="container">
 
-        <form action="add_track.php" method="post">
+            <form class="well form-horizontal" action="add_track.php" method="post">
 
-            <fieldset>
-                <div class="formular">
-                    <legend>Track data formular</legend>
-                    <div class="labelfield"> 
-                        <label  for="title" >Title track</label>
-                        <input type="text" id="title" name="title" placeholder="Ex. Fear of the Dark" name="title">
-                    </div>
-                    <div class="labelfield">
-                        <label  for="year">Year</label> 
-                        <input type="number" id="year" name="year" placeholder="Ex. 2001">
-                    </div>
-                    <div class="labelfield">
-                        <label  for="duration">Duration in seconds</label>
-                        <input  id="duration" type="number" name="duration" placeholder="Ex. 120">
-                    </div>
-                    <div class="labelfield">
-                        <label for="artiste" >Artiste Name</label>
-                        <input  type="text" id="author" name="author" placeholder="Ex. Iron Maiden">
-                    </div>
-                    <div>
-                        <input  type="text" value="true" name="form_yes" hidden>
 
-                        <input  type="submit" value="Submit track to database">
-                    </div>  
+
+                <h1 class="text-center">Track data formular</h1>
+
+                <div class="form-group"> 
+
+                    <label class="control-label col-md-2 col-md-offset-2" for="title" >Title track</label>
+                    <div    class="col-md-4">
+                        <input class= "form-control " type="text" id="title" name="title" placeholder="Ex. Fear of the Dark">
+                    </div>
                 </div>
-            </fieldset>         
-        </form>
 
+                <div class="form-group">
+
+                    <label class="control-label col-md-offset-2 col-md-2" for="year">Year</label> 
+                    <div class="col-md-4">
+                        <input class= "form-control" type="number" id="year" name="year" placeholder="Ex. 2001">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-offset-2 col-md-2" for="duration">Duration in seconds</label>
+                    <div class="col-md-4">
+                        <input class= "form-control" id="duration" type="number" name="duration" placeholder="Ex. 120">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-offset-2 col-md-2" for="author" >Artiste Name</label>
+                    <div class="col-md-4">
+                        <input class= "form-control" type="text" id="author" name="author" placeholder="Ex. Iron Maiden">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input  type="text" value="true" name="form_yes" hidden>
+                    
+                    <input class="btn btn-success"  type="submit" value="Submit track to database">
+                  
+                </div>  
+
+
+            </form>
+        </div>
         <footer>
-            <a href="logout.php">Logout</a>
-            <a  href="test_SQL.php">Access tracklist</a>
-            <a  href="logon.php">Back to homepage</a>
+            <a class="btn btn-danger" href="logout.php">Logout</a>
+            <a class="btn btn-primary" href="test_SQL.php">Access tracklist</a>
+            <a class="btn btn-default" href="logon.php">Back to homepage</a>
 
-<?php
-if (!($_SESSION['filled'])) {
-    echo '<div class = "error" >SOME FIELDS ARE EMPTY</div>';
-    $_SESSION['filled'] = true;
-}
-if ($_SESSION['addOK'] == true) {
-    echo '<div class = "success">NEW TRACK SUCCESSFULY ADD</div>';
-    $_SESSION['addOK'] = false;
-}
-?>
+            <?php
+            if (!($_SESSION['filled'])) {
+                echo '<div class = "error" >SOME FIELDS ARE EMPTY</div>';
+                $_SESSION['filled'] = true;
+            }
+            if ($_SESSION['addOK'] == true) {
+                echo '<div class = "success">NEW TRACK SUCCESSFULY ADD</div>';
+                $_SESSION['addOK'] = false;
+            }
+            ?>
         </footer>
     </body>
 </html>

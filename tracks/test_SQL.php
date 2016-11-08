@@ -13,17 +13,18 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
         <link rel="stylesheet" href="../master.css"/>
         <title>title</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     </head>
     <body>
-        <table>
-            <caption>Tracklist</caption>
+        <table class="table table-striped ">
+            <caption><h2 class="text-center">Tracklist</h2></caption>
             <thead>
-                <tr>
-                    <th>Track Name</th>
-                    <th>Author</th>
-                    <th>Year</th>
-                    <th>Duration</th>
+                <tr class="info ">
+                    <th class="text-center">Track Name</th>
+                    <th class="text-center">Author</th>
+                    <th class="text-center">Year</th>
+                    <th class="text-center">Duration</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,29 +36,31 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
 
                 while ($donnees = $reponse->fetch()) {
                     echo '<tr>';
-                    echo '<td><strong>' . $donnees['title'] . '</td>';
-                    echo '<td>' . $donnees['author'] . '</td>';
-                    echo '<td>' . $donnees['year'] . '</td>';
-                    echo '<td>' . $donnees['duration'] . '</td>';
+                    echo '<td class="text-center"><strong>' . $donnees['title'] . '</td>';
+                    echo '<td class="text-center">' . $donnees['author'] . '</td>';
+                    echo '<td class="text-center">' . $donnees['year'] . '</td>';
+                    echo '<td class="text-center">' . $donnees['duration'] . '</td>';
                     if ($_SESSION['currentUser'] === 'admin') {
                         ?>
-                    <td><a href="supress.php?id=<?php echo $donnees['id'] ?>">Remove</a></td>
-                    <td><a href="edit.php?id=<?php echo $donnees['id'] ?>">Edit</a></td> 
+                    <td><a class="btn btn-danger" href="supress.php?id=<?php echo $donnees['id'] ?>">Remove</a></td>
+                    <td><a class="btn btn-warning" href="edit.php?id=<?php echo $donnees['id'] ?>">Edit</a></td> 
 
-    <?php
-    }
-    echo '</tr>';
-}
-?>
+                    <?php
+                }
+                echo '</tr>';
+            }
+            ?>
 
         </tbody>
     </table>
     <?php
     if ($_SESSION['currentUser'] === 'admin') {
-        echo '<a href="accueil.php">Back to formular</a>';
-    }
         ?>
-    <a  href="logon.php">Back to homepage</a>
+        <a class="btn btn-primary" href="accueil.php"><i class="fa fa-user-md" aria-hidden="true"></i> Back to formular</a>
+        <?php
+    }
+    ?>
+    <a class="btn btn-default" href="logon.php"><i class="fa fa-home" aria-hidden="true"></i> Back to homepage</a>
 </body>
 </html>
 

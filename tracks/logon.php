@@ -32,106 +32,107 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="../master.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" > 
 
     </head>
     <body>
         <nav class ="container">
-            
+
             <div class="row">
-                
+
                 <div class="col-lg-12 text-capitalize"><h1>Welcome to tracklist !</h1></div>
 
-                
-                                
-                
+
+
+
             </div>
 
-        <?php
-        /* STRATING FROM THIS POINT, ALL FIELDS, BUTTONS ETC... WILL BE DISPLAYED ONLY 
-         * IF !!!NO!!!! VALID USER IS LOGGED
-         */
+            <?php
+            /* STRATING FROM THIS POINT, ALL FIELDS, BUTTONS ETC... WILL BE DISPLAYED ONLY 
+             * IF !!!NO!!!! VALID USER IS LOGGED
+             */
 
 
-        if (!isset($_SESSION['currentUser'])) {
-            $_SESSION['userLogged'] = false;
-            echo '<h3 class = "row">Your are currently not logged</h3>';
-            ?>
-            <!--LOGIN FORMULAR-->
-            
-            <form class="col-lg-4 well" action="login_confirm.php" method="post">
-                <legend>Please login...</legend>
-                <div    class="form-group">
-                    <label  for="username">Username</label>
-                    <input class="form-control" type="text" id="username" name="username" </input>
-                </div>
-                <div class="form-group">
-                    <label for="pass">Password</label>
-                    <input class="form-control" type="password" id="pass" name="pass" </input>
-                </div>
+            if (!isset($_SESSION['currentUser'])) {
+                $_SESSION['userLogged'] = false;
+                echo '<h3 class = "row">Your are currently not logged</h3>';
+                ?>
+                <!--LOGIN FORMULAR-->
 
-                
+                <form class="col-lg-4 well" action="login_confirm.php" method="post">
+                    <legend><i class="fa fa-user" aria-hidden="true"></i> Please login...</legend>
+                    <div    class="form-group">
+                        <label  for="username">Username</label>
+                        <input class="form-control" type="text" id="username" name="username" </input>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Password</label>
+                        <input class="form-control" type="password" id="pass" name="pass" </input>
+                    </div>
+
+
                     <button class="btn btn-primary" type="submit">Connect</button>
                     <button class="btn btn-default" type="reset">Reset</button>
-              
-                <?php
-                if ($_SESSION['usr_not_found'] == true) {
 
-                    $_SESSION['usr_not_found'] = false;
+                    <?php
+                    if ($_SESSION['usr_not_found'] == true) {
 
-                    echo '<div class = "error" >USER DOESN\'T EXIST</div>';
-                }
-                if ($_SESSION['wrongPassword'] == true) {
+                        $_SESSION['usr_not_found'] = false;
 
-                    $_SESSION['wrongPassword'] = false;
-                    echo '<div class = "error" >USERNAME AND PASSWORD DON\'T MATCH.</div>';
-                }
-                ?>
+                        echo '<div class = "error" >USER DOESN\'T EXIST</div>';
+                    }
+                    if ($_SESSION['wrongPassword'] == true) {
 
-            </form>
+                        $_SESSION['wrongPassword'] = false;
+                        echo '<div class = "error" >USERNAME AND PASSWORD DON\'T MATCH.</div>';
+                    }
+                    ?>
 
-            <!--REGISTER FORMULAR-->
+                </form>
 
-            <form class="col-lg-offset-2 col-lg-4 well" action="reg_confirm.php" method="post">
-                <legend>...or register</legend>
-                <div class="form-group">
-                    <label  for="username">Username</label>
-                    <input class="form-control" type="text" id="username" name="username" required</input>
-                </div>
-                <div class="form-group">
-                <label for="pass">Password</label>
-                <input class="form-control" type="password" id="pass" name="pass" required</input>
-                </div>
-               
-                <button class="btn btn-primary" type="submit">Register</button>
-                <button class="btn btn-default" type="reset">Reset</button>
+                <!--REGISTER FORMULAR-->
 
-                <?php
-                if ($_SESSION['usr_not_valid'] == true) {
+                <form class="col-lg-offset-2 col-lg-4 well" action="reg_confirm.php" method="post">
+                    <legend><i class="fa fa-user-plus" aria-hidden="true"></i> ...or register</legend>
+                    <div class="form-group">
+                        <label  for="username"> Username</label>
+                        <input class="form-control" type="text" id="username" name="username" required</input>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Password</label>
+                        <input class="form-control" type="password" id="pass" name="pass" required</input>
+                    </div>
 
-                    $_SESSION['usr_not_valid'] = false;
+                    <button class="btn btn-primary" type="submit">Register</button>
+                    <button class="btn btn-default" type="reset">Reset</button>
 
-                    echo '<div class = "error" >USERNAME ALREADY USED</div>';
-                }
+                    <?php
+                    if ($_SESSION['usr_not_valid'] == true) {
 
-                if ($_SESSION['empty_username'] == true) {
+                        $_SESSION['usr_not_valid'] = false;
 
-                    $_SESSION['empty_username'] = false;
-                    echo '<div class = "error" >USERNAME FIELD IS EMPTY</div>';
-                }
+                        echo '<div class = "error" >USERNAME ALREADY USED</div>';
+                    }
 
+                    if ($_SESSION['empty_username'] == true) {
 
-
-                if ($_SESSION['empty_password'] == true) {
-
-                    $_SESSION['empty_password'] = false;
+                        $_SESSION['empty_username'] = false;
+                        echo '<div class = "error" >USERNAME FIELD IS EMPTY</div>';
+                    }
 
 
-                    echo '<div class = "error" >PASSWORD FIELD IS EMPTY</div>';
-                }
-                ?>
 
-            </form>
-</nav>
+                    if ($_SESSION['empty_password'] == true) {
+
+                        $_SESSION['empty_password'] = false;
+
+
+                        echo '<div class = "error" >PASSWORD FIELD IS EMPTY</div>';
+                    }
+                    ?>
+
+                </form>
+            </nav>
 
 
 
@@ -143,15 +144,19 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
              */
         } else {
 
-            echo '<h3>Your are currently logged as ' . $_SESSION['currentUser'] . ' .</h3>';
+            echo '<h3>Your are currently logged as ' . $_SESSION['currentUser'] . '.</h3>';
             if ($_SESSION['currentUser'] === 'admin') {
-                echo '<a href="accueil.php">Access formular</a>';
+                ?>
+
+                <a class="btn btn-primary" href="accueil.php"> <i class="fa fa-user-md" aria-hidden="true"></i> Add track</a>
+                <a class="btn btn-primary" href=""> <i class="fa fa-user-md" aria-hidden="true"></i> Manage users</a>
+                <?php
             }
             ?>
 
-        <a class="btn btn-info" href="test_SQL.php">Access tracklist</a>
-            <a class="btn btn-success" href="playlist_list.php">Access playlist</a>
-            <a class="btn btn-warning" href="create_playlist.php">Create playlist</a>
+            <a class="btn btn-info" href="test_SQL.php"><i class="fa fa-music" aria-hidden="true"></i> Access tracklist</a>
+            <a class="btn btn-success" href="playlist_list.php"><i class="fa fa-headphones" aria-hidden="true"></i> Access playlist</a>
+            <a class="btn btn-warning" href="create_playlist.php"><i class="fa fa-headphones" aria-hidden="true"></i> Create playlist</a>
             <?php
         }
 
@@ -159,8 +164,8 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
 
 
         if (isset($_SESSION['currentUser'])) {
-            echo '<div class="col-lg-4">';
-            echo '<a class = "btn btn-danger" href="logout.php">Click here to disconnect</a>';
+            echo '<div class="col-md-4">';
+            echo '<a class = "btn btn-danger" href="logout.php"><i class="fa fa-user-times" aria-hidden="true"></i> Click here to disconnect</a>';
             echo '</div> ';
         }
         ?>
