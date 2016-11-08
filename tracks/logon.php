@@ -142,37 +142,54 @@ $pdo = new PDO(SQL_DSN, SQL_USER, SQL_PASSWORD);
 
                 if ($_SESSION['currentUser'] === 'admin') {
                     ?>
-                    <div class="col-md-5">
-                        <div class="btn-group btn-group-justified">
-                            <a class="btn btn-primary" href="accueil.php"> <i class="fa fa-user-md" aria-hidden="true"></i> Add track</a>
-                            <a class="btn btn-primary" href="accueil_author.php"> <i class="fa fa-user" aria-hidden="true"></i> Add author</a>
-                            <a class="btn btn-primary" href=""> <i class="fa fa-user-md" aria-hidden="true"></i> Manage users</a>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="btn-group btn-group-justified">
+                                <a class="btn btn-primary" href="accueil_author.php"> <i class="fa fa-users" aria-hidden="true"></i> Add author</a>
+                                <a class="btn btn-info" href="accueil_genre.php"> <i class="fa fa-tag" aria-hidden="true"></i> Add genre</a>
+                                <a class="btn btn-primary" href="accueil.php"> <i class="fa fa-music" aria-hidden="true"></i> Add track</a>
+                                <a class="btn btn-success" href="create_playlist.php"><i class="fa fa-list-alt" aria-hidden="true"></i> Create playlist</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="btn-group btn-group-justified">
+                                <a class="btn btn-warning" href=""> <i class="fa fa-user-md" aria-hidden="true"></i> Manage users</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-2 col-md-4">
+                        <?php
+                    } else {
+                        ?>
+                        <div class="col-md-offset-2 col-md-8">
+                            <?php
+                        }
+                        ?>                    
+
+                        <div class="row">
+                            <div class="btn-group  btn-group-justified">
+                                <a class="btn btn-primary" href="author_list.php"><i class="fa fa-users" aria-hidden="true"></i> Open authorlist</a>
+                                <a class="btn btn-info" href="genre_list.php"><i class="fa fa-tag" aria-hidden="true"></i> Open genrelist</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="btn-group  btn-group-justified">
+                                <a class="btn btn-info" href="test_SQL.php"><i class="fa fa-music" aria-hidden="true"></i> Open tracklist</a>
+                                <a class="btn btn-success" href="playlist_list.php"><i class="fa fa-list-alt" aria-hidden="true"></i> Open playlist</a>
+                            </div>
                         </div>
                     </div>
                     <?php
-                }
-                ?>                    
-                <div class="col-md-7">
-                    <div class="btn-group  btn-group-justified">
-                        <a class="btn btn-primary" href="author_list.php"><i class="fa fa-users" aria-hidden="true"></i> Access authorlist</a>
-                        <a class="btn btn-info" href="test_SQL.php"><i class="fa fa-music" aria-hidden="true"></i> Access tracklist</a>
-                        <a class="btn btn-success" href="playlist_list.php"><i class="fa fa-headphones" aria-hidden="true"></i> Access playlist</a>
-                        <a class="btn btn-warning" href="create_playlist.php"><i class="fa fa-headphones" aria-hidden="true"></i> Create playlist</a>
-                    </div>
-                </div>
-                <?php
-                echo '</div>';
-            }
-            ?>
-            <div class="row">
-                <?php
-                if (isset($_SESSION['currentUser'])) {
-                    echo '<br><div class="col-md-12">';
-                    echo '<a class = "btn btn-danger btn-block" href="logout.php"><i class="fa fa-user-times" aria-hidden="true"></i> Click here to disconnect</a>';
-                    echo '</div> ';
+                    echo '</div><br/>';
                 }
                 ?>
-            </div>
+                <div class="row">
+                    <?php
+                    if (isset($_SESSION['currentUser'])) {
+                        echo '<a class = "btn btn-danger btn-block" href="logout.php"><i class="fa fa-user-times" aria-hidden="true"></i> Click here to disconnect</a>';
+                    }
+                    ?>
+                </div>
         </nav>
 
     </body>

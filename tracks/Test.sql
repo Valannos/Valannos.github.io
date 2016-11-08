@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 08 Novembre 2016 à 12:05
+-- Généré le :  Mar 08 Novembre 2016 à 14:28
 -- Version du serveur :  5.7.16-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.8-0ubuntu0.16.04.3
 
@@ -41,6 +41,24 @@ INSERT INTO `author` (`id`, `name`) VALUES
 (6, 'Rank1'),
 (7, 'Markus Schuls'),
 (8, 'xcxcw');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `genre`
+--
+
+CREATE TABLE `genre` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `genre`
+--
+
+INSERT INTO `genre` (`id`, `name`) VALUES
+(1, 'Classic');
 
 -- --------------------------------------------------------
 
@@ -85,15 +103,16 @@ CREATE TABLE `track` (
   `title` varchar(120) NOT NULL,
   `authorid` int(11) NOT NULL,
   `year` int(11) NOT NULL,
-  `duration` int(11) NOT NULL
+  `duration` int(11) NOT NULL,
+  `genreid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `track`
 --
 
-INSERT INTO `track` (`id`, `title`, `authorid`, `year`, `duration`) VALUES
-(24, 'cfds', 4, 1221, 120);
+INSERT INTO `track` (`id`, `title`, `authorid`, `year`, `duration`, `genreid`) VALUES
+(25, 'LE titre', 6, 2100, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -131,6 +150,12 @@ ALTER TABLE `author`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `genre`
+--
+ALTER TABLE `genre`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `playlist_track`
 --
 ALTER TABLE `playlist_track`
@@ -147,8 +172,9 @@ ALTER TABLE `playlist_user`
 -- Index pour la table `track`
 --
 ALTER TABLE `track`
-  ADD PRIMARY KEY (`id`,`authorid`),
-  ADD KEY `Delete from author` (`authorid`);
+  ADD PRIMARY KEY (`id`,`authorid`,`genreid`),
+  ADD KEY `Delete from author` (`authorid`),
+  ADD KEY `Delete from genre` (`genreid`);
 
 --
 -- Index pour la table `user`
@@ -166,6 +192,11 @@ ALTER TABLE `user`
 ALTER TABLE `author`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
+-- AUTO_INCREMENT pour la table `genre`
+--
+ALTER TABLE `genre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT pour la table `playlist_user`
 --
 ALTER TABLE `playlist_user`
@@ -174,7 +205,7 @@ ALTER TABLE `playlist_user`
 -- AUTO_INCREMENT pour la table `track`
 --
 ALTER TABLE `track`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
@@ -200,7 +231,8 @@ ALTER TABLE `playlist_user`
 -- Contraintes pour la table `track`
 --
 ALTER TABLE `track`
-  ADD CONSTRAINT `Delete from author` FOREIGN KEY (`authorid`) REFERENCES `author` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Delete from author` FOREIGN KEY (`authorid`) REFERENCES `author` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Delete from genre` FOREIGN KEY (`genreid`) REFERENCES `genre` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

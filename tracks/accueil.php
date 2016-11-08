@@ -78,6 +78,20 @@ if (!(isset($_SESSION['addOK']))) {
                         </select>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="control-label col-md-offset-2 col-md-2" for="genre" >Genre</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="genre" name="genre">
+                            <?php
+                            $genres = $pdo->prepare('SELECT * FROM genre');
+                            $genres->execute();
+                            while ($donnees = $genres->fetch()) {
+                                echo '<option value="' . $donnees['id'] . '">' . $donnees['name'] . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
                 <div class="text-center">
                     <input  type="text" value="true" name="form_yes" hidden>
 
