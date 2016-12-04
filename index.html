@@ -1,86 +1,293 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Un CV</title>
+        <link rel="stylesheet" href="style_cv.css" media="screen" title="no title">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header id = "name_photo">
 
-<head>
-    <meta charset="utf-8">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="index_style_al.css" media="screen" title="no title">
 
-    <title></title>
-</head>
 
-<body>
-    <div id="global_display">
-        <header>
-            <h1>Rémi Vanel</h1>
-            <h3>Junior Developper in apprenticeship, former Organic Chemist (PhD)</h3>
-            <button type="button" name="button" id="menu"><h2>Click-me</h2></button>
+            <div class="infos">
+                <img id = "photo" src="20141224_122618.jpg" alt="id_photo" title="id_photo" />
+            </div>
+
+            <div class="etat">
+                <h1>Rémi Vanel</h1>
+                <h2>Né le 17 mai 1985 à Marseille<br/>Réside à Lesneven, France</h2>
+                <h3>Développeur junior</h3>
+            </div>
+            <div class="liens">
+                <a href="#"><i class="fa fa-linkedin fa-3x" aria-hidden="true"></i></a>
+        
+                <a href="#"><i class="fa fa-viadeo fa-3x" aria-hidden="true"></i></a>
+            </div>
+
+
+
         </header>
-        <nav>
-            <section class="bio">
-                <h2>Short biography</h2>
-                <p>After a six years-old carrier as an organic chemist, I've recently decided to perfomed a professionnal retraining in IT to explore new opportunities and aiming to find a job related to personnal interests</p>
-                <p>Following a short period of self-education in several langages through various websites, I've joined a professionnal formation stated this fall</p>
-            </section>
 
-            <section class="links">
+        <nav id = "main">
+            <ul>
+                <li id="lexp" > <a href="#exp"><h2>Experiences <br>
+                            <i class="fa fa-briefcase fa-4x" aria-hidden="true"></i></h2>
+                    </a> </li>
 
-                <h2 class="sectionTitles">Links</h2>
-                <ul id="ulLinks">
-                    <li> <a href="#">CV (French version)</a></li>
-                    <li> <a href="#">CV (English version)</a></li>
-                    <li><a href="#"><i class="fa fa-viadeo-square fa-3x" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a></li>
-                </ul>
+                <li id="lformations"><a href="#formations"><h2>Formation initiale <br>
+                            <i class="fa fa-flask fa-4x" aria-hidden="true"></i></h2></a></li>
 
-            </section>
+                <li id="lcomp"> <a href="#comp"><h2>Compétences <br>
+                            <i class="fa fa-hand-paper-o fa-4x" aria-hidden="true"></i></h2></a></li>
 
-            <section class="projets">
-                <h2 class="sectionTitles">Current projects</h2>
-                <ul>
-                  <li><a href="ToDo/Alternative_version/todo-v3.html">ToDoList</a> <br></li>
-                </ul>
+                <li id="lother">  <a href="#other"><h2>Informations<br>
+                            <i class="fa fa-info-circle fa-4x" aria-hidden="true"></i></h2></a></li>
 
-            </section>
-            <section class="lang">
-                <h2 class="sectionTitles">languages currently studdied</h2>
-                <ul id="ulLang">
-                    <li> <i class="fa fa-html5 fa-2x" aria-hidden="true"></i> HTML5</li>
-                    <li> <i class="fa fa-css3 fa-2x" aria-hidden="true"></i> CSS3</li>
-                    <li>JavaScript and jQuery</li>
-                    <li>Java</li>
-                    <li>C#</li>
-
-                </ul>
-
-
-            </section>
+                <li id="lcontact"> <a href="#contact"><h2>Contacter <br>
+                            <i class="fa fa-envelope-o fa-4x" aria-hidden="true"></i></h2></a></li>
+            </ul>
         </nav>
-        <!-- <script type="text/javascript" src="index_js.js"></script> -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script type="text/javascript">
-             $section = $("section");
-             $nav = $("nav");
-             $h2_title = $("nav h2");
-            $nav.hide();
-            $("#menu").on("click", function() {
-                $nav.toggle(1000);
-
-                $section.find("ul,p").hide();
-                // $section.find("p").hide();
 
 
-            });
-            $h2_title.on("click", function(e) {
-              var target = $(e.target);
-              target.siblings().toggle();
+        <section id="exp">
+            <h2>Experiences</h2>
 
-            });
-        </script>
+            <ul>
+                <li>
+                    <p><i class="fa fa-hourglass" aria-hidden="true"></i> <strong>Février 2015 - Février 2016 :</strong><br>
+                        Stage postdoctoral </br>
+                        <a href="http://www.sciences.univ-nantes.fr/CEISAM/">Laboratoire de Chimie et
+                            Interdisciplinarité (EBSI) </a> <br>    Chef d'équipe : Pr. Gérald Remaud
+                    </p>
+
+                    <p class="text_logo">
+                        (Université de Nantes, France)<br>
+                        <img class="logo" src="logo-universite-de-nantes.jpg" alt="logo_univ_naoned" />
+                    </p>
 
 
 
-    </div>
-</body>
+                </li>
+                <li>
+                    <p> <i class="fa fa-hourglass" aria-hidden="true"></i> <strong>Janvier 2012 - Mars 2014</strong><br/>
+                        Stage postdoctoral <br><a href="http://www.unige.ch/sciences/chiorg/">Département de Chimie Organique</a> <br>Groupe du Pr. Jérôme Lacour.
+                    </p>
 
+                    <p class="text_logo">
+                        (Université de Genève, Suisse) <br>
+                        <img class = "logo" src="logo-unige.jpg" alt="logo_unige" />
+                    </p>
+                </li>
+
+                <li>
+                    <p >  <i class="fa fa-hourglass" aria-hidden="true"></i> <strong>Octobre 2008 - Novembre 2011</strong> <br>
+                        Chercheur doctorant </br><a href="http://dcm.ujf-grenoble.fr/DCM-SITE/DCM/">Département de Chimie Moléculaire</a>
+                        <br> Directeurs : Drs. Cathy et Jacques Einhorn.
+                    </p>
+
+                    <p class="text_logo">(Université de Grenoble, France) <br>
+                        <img class = "logo" src="Logo-Universite-Grenoble.jpg" alt="logo_univ_gre" />
+                    </p>
+
+                </li>
+            </ul>
+
+            <a href="#main"><i class="fa fa-chevron-circle-left fa-rotate-90" aria-hidden="true"></i> Retour au sommaire</a>
+
+        </section>
+
+        <section id ="formations">
+            <h2>Formation initiale</h2>
+            <ul>
+                <!--autre FORMATION-->
+                <li>
+                    <p>
+                    <strong>Octobre 2016 - Mai 2017 </strong> <br/>
+                    Stagiaire Développeur Logiciel<br>
+                    </p>
+                    <p>
+                        <a href="https://www.afpa.fr/formation-qualifiante/developpeur-logiciel">AFPA de Morlaix (29)</a>
+                    </p>
+                </li>
+
+
+                <li>
+                    <p>
+                        <strong>2008-2011</strong> <br/>
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i> Doctorat de Chimie Organique<br>
+                    </p>
+                    <p>
+                        <a href="http://www.univ-grenoble-alpes.fr/">Université de Grenoble </a>
+                    </p>
+                </li>
+
+
+
+
+
+                <!--autre FORMATION-->
+                <li>
+                    <p>
+
+
+                        <strong>2006-2008</strong> <br/>
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i> Master Synthèse Organique <br>pour les Industries Pharmaceutiques et Agrochimiques<br>
+                    </p>
+                    <p>
+
+
+                        <a href="http://www.univ-grenoble-alpes.fr/">Université de Grenoble</a>
+                    </p>
+
+                </li>
+                <!--autre FORMATION-->
+                <li>
+                    <p>
+                        <strong>2003-2006</strong><br/>
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>  Licence de Chimie<br/>
+                    </p>
+                    <p>
+                        <a href="http://www.univ-amu.fr/">Université D'Aix-Marseille</a>
+                    </p>
+
+
+
+
+            </ul>
+            <a href="#main"><i class="fa fa-chevron-circle-left fa-rotate-90" aria-hidden="true"></i> Retour au sommaire</a>
+        </section>
+        <section id = "comp">
+            <h2>Compétences</h2>
+            <ul>
+
+                <li>
+                    <dl>
+                        <dt><i class="fa fa-hand-paper-o" aria-hidden="true"></i> <strong>Informatique</strong></dt>
+                        <dd>Microsoft Word, Excel, Powerpoint</dd>
+                        <dd>Notions de  <strong>HTML5/CSS/JavaScript (Bootstrap, Node.JS)</strong> </dd>
+                        <dd>Notions de <strong>C#, Java, PHP (Symfony), MySQL</strong></dd>
+
+                        <dd>Logiciels scientifiques spécifiques : ChemDraw, TopSpin, Zotero</dd>
+                    </dl>
+
+                </li>
+                <li>
+                    <dl>
+                        <dt><i class="fa fa-hand-paper-o" aria-hidden="true"></i> <strong>Enseignement et Communication</strong></dt>
+                        <dd>Encadrement d’étudiants (Master)</dd>
+                        <dd>Cours de Chimie en 1ere et 2e années</dd>
+                        <dd>Interactions interdisciplinaires</dd>
+                        <dd>Présentation de résultats dans le cadre de congrés scientifiques</dd>
+                        <dd>Animation d'ateliers de brainstorming</dd>
+                    </dl>
+
+                </li>
+                <li>
+                    <dl >
+                        <dt><i class="fa fa-hand-paper-o" aria-hidden="true"></i> <strong>Chimie Organique</strong></dt>
+                        <dd>Chimie hétérocyclique</dd>
+                        <dd>Méthodes de caractérisations (RMN, SM, GC…)</dd>
+                        <dd>Méthodes de purifications courantes</dd>
+                        <dd>Recherches bibliographiques</dd>
+                    </dl>
+                </li>
+            </ul>
+            <a href="#main"><i class="fa fa-chevron-circle-left fa-rotate-90" aria-hidden="true"></i> Retour au sommaire</a>
+
+
+
+
+
+
+
+        </section>
+
+        <section id="other">
+            <h2>Informations Complémentaires</h2>
+            <ul>
+                <li><h3><i class="fa fa-comment-o" aria-hidden="true"></i> Langues</h3>
+                    <p>
+                        Anglais (professionnel)<br>
+                        Allemand (notions)
+                    </p>
+                </li>
+                <li>
+                    <h3><i class="fa fa-info-circle" aria-hidden="true"></i> Activités personnelles</h3>
+
+
+                    <p>
+                        Bénévolat en soutien scolaire<br/>
+                        Quête annuelle de la Croix-Rouge Française<br/>
+
+
+
+                        Musique<br/>
+                        Randonnée
+
+
+                    </p>
+                </li>
+
+                <li>
+                    <h3><i class="fa fa-info-circle" aria-hidden="true"></i> Divers</h3>
+                    <p>
+
+
+
+
+                        Permis  de conduire B<br>
+
+                        Prévention et Secours Civiques de Niveau 1<br>
+                    </p>
+                </li>
+
+            </ul>
+            <a href="#main"> <i class="fa fa-chevron-circle-left fa-rotate-90" aria-hidden="true"></i> Retour au sommaire</a>
+        </section>
+
+
+        <section id="contact">
+
+
+
+            <h2>Contacter</h2>
+
+
+            <ul>
+                <li><h4><i class="fa fa-envelope" aria-hidden="true"></i> Courriel</h4>
+                    <p>
+                        <a href="mailto:vanel.remi@gmail.com">Professionnel</a> <br>
+                        <a href="mailto:vladxill@gmail.com">Personnel</a>
+                    </p>
+                </li>
+
+<!--
+                <li>   <h4><i class="fa fa-envelope-o" aria-hidden="true"></i> Adresse postale</h4>  <p>
+                        Platea est nûllam tempus morbi morbié himenaéos.<br>29260 LESNEVEN
+                    </p></li>
+-->
+
+                <li> <h4><i class="fa fa-phone" aria-hidden="true"></i> Téléphones</h4> Mobile : <span class="numero"> 06 30 90 20 40</span><br>
+                    Fixe : <span class="numero">02 98 41 95 52</span></li>
+            </ul>
+
+
+
+            <a href="#main"><i class="fa fa-chevron-circle-left fa-rotate-90" aria-hidden="true"></i> Retour au sommaire</a>
+        </section>
+
+        <footer>
+            <p>
+                Version du 06/10/2016
+
+            </p>
+        </footer>
+
+
+
+
+
+    </body>
 </html>

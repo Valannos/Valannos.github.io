@@ -1,0 +1,314 @@
+/*GENERAL*/
+
+body {
+  font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  align-items:stretch;
+  padding: 1em;
+  justify-content:center;
+
+
+}
+li {
+  list-style-type: none;
+  text-align: center;
+
+}
+a{
+  color:black;
+}
+
+/*HEADER*/
+
+header  {
+  background-color: #0C6482;
+  border: 3px #0C6482 solid;
+  border-radius: 5px 5px 20px 20px;
+  text-align: center;
+  height: 40em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.etat{
+  font-family:sans-serif;
+  color:#B8CDD4;
+}
+.liens {
+  
+  width: 30em;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+
+
+}
+
+#photo {
+  border-radius: 100px ;
+  width:15em;
+}
+#lexp:hover, #lexp:active{
+  background-color: #8CAB89;
+  color : white;
+}
+#lformations:hover, #lformations:active{
+  background-color: #D66B6B;
+}
+#lother:hover, #lother:active{
+  background-color: #D6B16B;
+}
+#lcontact:hover, #lcontact:active{
+  background-color: #7180DE;
+
+}
+#lcomp:hover, #lcomp:active{
+  background-color: #C49266;
+
+/*ONGLET DE NAVIGATION*/
+
+}
+nav {
+
+
+
+}
+  nav ul{
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+  flex-wrap: wrap;
+  padding: 0.5em;
+
+  justify-content: space-between;
+  align-items:stretch;
+
+
+
+
+
+
+}
+  nav ul li {
+
+
+  list-style-type: none;
+  border-radius: 30px 10px;
+  padding: 0.5em;
+  margin: 0.5em;
+  background-color: #0C6482;
+
+
+
+
+}
+
+nav ul a:hover, header div a:hover {
+  color:white;
+
+  text-shadow: 3px 3px 10px black;
+
+}
+nav ul a:active, header div a:hover {
+  color: white;
+  text-shadow: none;
+}
+nav a {
+  text-decoration: none;
+}
+
+
+/*SECTIONS : GENERALITES*/
+
+section {
+  padding: 1em;
+  border-radius: 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+  margin-bottom: 1.5em;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+section h2 {
+  text-align: center;
+  text-transform:uppercase;
+}
+
+/*SECTION : LISTES*/
+
+section ul {
+
+  display: flex;
+  flex-direction: row;
+  margin: 0.5em;
+  flex-wrap: wrap;
+  padding: 0.5em;
+
+  justify-content: space-between;
+  align-items:stretch;
+
+
+
+
+
+
+
+
+}
+section ul li{
+  margin:0.5em;;
+  border-top: 1px grey solid;
+  border-bottom: 1px grey solid;
+  border-radius: 10px 10px;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  width: 20em;
+
+
+
+
+
+
+}
+section ul li:hover{
+  box-shadow: 3px 3px 1px black;
+  border-radius: 20px 20px;
+}
+section a:active{
+  text-shadow: 1px 1px 0.5px black;
+}
+section a{
+  text-decoration: none;
+  text-align: center;
+  font-weight: bolder;
+
+}
+section a:hover{
+  color:white;
+}
+section h2:hover{
+  color: white;
+}
+
+.text_logo {
+
+}
+
+/*SECTION : SPECIFIQUES*/
+
+#exp {
+  background-color: #8CAB89;
+
+
+
+
+}
+.numero{
+  font-weight: bolder;
+}
+#formations {
+  background-color: #D66B6B;
+
+}
+#other {
+  background-color: #D6B16B;
+
+}
+#contact {
+
+  border-radius: 20px 20px 5px 5px;
+  background-color: #7180DE;
+
+}
+#comp li {
+  text-align: left;
+}
+#comp {
+  background-color: #C49266;
+}
+#exp ul li{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+
+}
+
+
+
+/*LOGO*/
+.logo {
+  height: 50%;
+  width: 50%;
+  border: 2px black solid;
+
+}
+
+
+/*FOOTER*/
+footer{
+  border: 3px grey solid;
+  border-radius: 20px 20px;
+  text-align: center;
+  font-style: italic;
+  border-style:groove;
+
+
+}
+
+/*RESPONSIVE*/
+
+@media all and (max-width:1024px){
+  *{
+    font-size:1em;
+  }
+  nav ul {
+      flex-direction: column;
+      align-items:stretch;
+      justify-content: space-between;
+
+  }
+
+nav ul li{
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+header {
+  font-size: 1.5em;
+}
+
+  section ul {
+
+    flex-direction: column;
+    align-items: center;
+
+
+
+  }
+  section ul li {
+    height: auto;
+
+  }
+
+
+
+
+
+
+  }
+  @media all and (max-width:480px) {
+    section ul li {
+      width: auto;
+      border: none;
+      border-radius: none;
+      border-top: 1px black solid;
+        border-bottom: 1px black solid;
+        padding: 1em;
+    }
+  }
