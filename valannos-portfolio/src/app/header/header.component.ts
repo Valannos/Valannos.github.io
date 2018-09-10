@@ -16,8 +16,14 @@ export class HeaderComponent implements OnInit {
     const contactGitHub: Contact = new Contact();
     contactGitHub.icon = 'fab fa-github';
     contactGitHub.link = 'https://github.com/Valannos';
-    contactGitHub.name = 'GitHub';
+    contactGitHub.name = 'My GitHub';
     this.contacts.push(contactGitHub);
+
+    const contactMail: Contact = new Contact();
+    contactMail.icon = 'fas fa-envelope';
+    contactMail.link = 'mailto:vanel.remi@gmail.com';
+    contactMail.name = 'Contact me';
+    this.contacts.push(contactMail);
   }
 
 }

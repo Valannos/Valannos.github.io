@@ -1,4 +1,11 @@
 .header-card {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
+
+}
+.presentation {
+  background-color: #0C6482;
+  color: white;
+}
+mat-card {
+  margin: auto;
 }

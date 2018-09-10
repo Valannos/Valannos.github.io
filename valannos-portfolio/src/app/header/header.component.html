@@ -1,25 +1,32 @@
-<mat-card class="header-card">
-  <mat-card-title>Junior fullstack developper</mat-card-title>
-  <mat-card-header>
-    <img mat-card-avatar src="src/assets/IMG_1495475492553.jpg">
-    <mat-card-title>Rémi Vanel</mat-card-title>
-    <mat-card-subtitle>33 years old</mat-card-subtitle>
-    <mat-card-subtitle>Brittany (France)</mat-card-subtitle>
 
-  </mat-card-header>
-  <mat-card-content>
-    <p>Former organic chemist, starting a new career as software programmer,
-      recently acquired solid bases in<em>front-end</em> and <em>back-end</em> developpments.<br />
-      I have solid bases in Java/Spring (SpringData, SpringRest, SpringSecurity...) and Angular 6 environnments.
-    </p>
+<mat-card fxLayout="row wrap" fxLayoutAlign="space-around center"  fxLayoutAlign="space-around center">
+
+  <mat-card class="header-card">
+      <mat-card-title>Junior backend developper</mat-card-title>
+    <mat-card-header>
+
+      <img mat-card-avatar src="src/assets/IMG_1495475492553.jpg">
+      <mat-card-title>Rémi Vanel</mat-card-title>
+      <mat-card-subtitle>33 years old</mat-card-subtitle>
+      <mat-card-subtitle>Brittany (France)</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+    <mat-card class="header-card presentation">
+      <p>Former organic chemist, starting a new career as software programmer.<br/>
+        Solid bases in<em>front-end</em> and <em>back-end</em> developpments.<br />
+        Competences mainly focused on Spring/Angular environnements.
+      </p>
+    </mat-card>
+
+  <mat-card class="header-card">
+      <mat-card-title>Informations</mat-card-title>
     <mat-list>
-        <mat-list-item *ngFor="let contact of contacts">
-            <i class="fab fa-github"></i>
-            <a [href]="contact.link">{{contact.name}}</a>
-          </mat-list-item>
-      </mat-list>
-  </mat-card-content>
+      <mat-list-item *ngFor="let contact of contacts">
+        <mat-icon mat-list-icon [ngClass]="contact.icon"></mat-icon>
+        <h4 mat-line><a [href]="contact.link">{{contact.name}}</a></h4>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
 
 </mat-card>
-
-
