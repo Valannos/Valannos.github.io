@@ -5,6 +5,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { HttpClientModule } from '@angular/common/http';
+import {MatSortModule} from '@angular/material/sort';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatListModule,
     MatToolbarModule,
     MatIconModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    HttpClientModule,
+    MatSortModule
   ],
   declarations: [],
   exports: [
@@ -22,7 +26,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatListModule,
     MatToolbarModule,
     MatIconModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    HttpClientModule,
+    MatSortModule
   ]
 })
 export class AngularMaterialModule { }

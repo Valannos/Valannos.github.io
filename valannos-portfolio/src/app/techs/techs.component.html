@@ -1,7 +1,12 @@
-<mat-list>
+<mat-card class="mat-card-root">
+    <mat-card-title>Known languages and technologies</mat-card-title>
+  <mat-list>
     <mat-list-item *ngFor="let tech of technologies">
-        <mat-icon *ngFor="let icon of tech.icons" mat-list-icon [ngClass]="icon"></mat-icon>
-        <h4 mat-line>{{tech.name}}</h4>
-        <mat-progress-bar [value]="tech.level" color="warn" ></mat-progress-bar>
-      </mat-list-item>
-</mat-list>
+
+      <h3 mat-line>{{tech.name}}</h3>
+      <p mat-line>{{tech.descirption}}</p>
+      <mat-icon *ngFor="let icon of tech.icons" mat-list-icon [ngClass]="icon"></mat-icon>
+      <mat-progress-bar [value]="tech.level" color="warn"></mat-progress-bar>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

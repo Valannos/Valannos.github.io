@@ -1,26 +1,14 @@
-
-<mat-card fxLayout="row wrap" fxLayoutAlign="space-around center"  fxLayoutAlign="space-around center">
-
-  <mat-card class="header-card">
-      <mat-card-title>Junior backend developper</mat-card-title>
-    <mat-card-header>
-
-      <img mat-card-avatar src="src/assets/IMG_1495475492553.jpg">
-      <mat-card-title>Rémi Vanel</mat-card-title>
-      <mat-card-subtitle>33 years old</mat-card-subtitle>
-      <mat-card-subtitle>Brittany (France)</mat-card-subtitle>
-    </mat-card-header>
+<mat-card fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutAlign="space-around center" class="mat-card-root" >
+  <mat-card class="header-card presentation">
+    <mat-card-title>Junior backend developper</mat-card-title>
+    <p>Former organic chemist, starting a new career as software programmer.<br />
+      Solid bases in<em>front-end</em> and <em>back-end</em> developpments.<br />
+      Competences mainly focused on Spring/Angular environnements.
+    </p>
   </mat-card>
 
-    <mat-card class="header-card presentation">
-      <p>Former organic chemist, starting a new career as software programmer.<br/>
-        Solid bases in<em>front-end</em> and <em>back-end</em> developpments.<br />
-        Competences mainly focused on Spring/Angular environnements.
-      </p>
-    </mat-card>
-
   <mat-card class="header-card">
-      <mat-card-title>Informations</mat-card-title>
+    <mat-card-title>Contacts</mat-card-title>
     <mat-list>
       <mat-list-item *ngFor="let contact of contacts">
         <mat-icon mat-list-icon [ngClass]="contact.icon"></mat-icon>
@@ -29,4 +17,15 @@
     </mat-list>
   </mat-card>
 
+  <mat-card class="header-card">
+      <mat-card-title>Personnal</mat-card-title>
+    <mat-card-header>
+
+      <img mat-card-avatar src="src/assets/IMG_1495475492553.jpg">
+      <mat-card-title>Rémi Vanel</mat-card-title>
+      <mat-card-subtitle>33 years old</mat-card-subtitle>
+      <mat-card-subtitle>PhD in Organic Chemistry/IT developper</mat-card-subtitle>
+      <mat-card-subtitle>Brittany (France)</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
 </mat-card>
