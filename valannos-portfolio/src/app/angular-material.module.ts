@@ -8,6 +8,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSortModule} from '@angular/material/sort';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatProgressBarModule,
     HttpClientModule,
     MatSortModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatButtonModule
   ],
   declarations: [],
   exports: [
@@ -31,7 +33,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatProgressBarModule,
     HttpClientModule,
     MatSortModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatButtonModule
   ]
 })
 export class AngularMaterialModule { }

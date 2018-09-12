@@ -19,14 +19,17 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
   background-color: beige;
 }
 .panel-title-techs {
-  background-color: rgb(155, 83, 83);
+  background-color: rgb(114, 83, 155);
 }
 .panel-title-jobs {
   background-color: rgb(114, 83, 155);
 }
 .panel-title-projects {
-  background-color: rgb(13, 124, 37);
+  background-color: rgb(114, 83, 155);
 }
 .panel-title-pubs {
-  background-color: rgb(41, 43, 167);
+  background-color: rgb(114, 83, 155);
+}
+.panel-title-formation {
+  background-color: rgb(114, 83, 155);
 }

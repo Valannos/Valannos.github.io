@@ -10,6 +10,7 @@ import { TechsComponent } from './techs/techs.component';
 import { CareerComponent } from './career/career.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PublicationsComponent } from './publications/publications.component';
+import { FormationComponent } from './formation/formation.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PublicationsComponent } from './publications/publications.component';
     CareerComponent,
     ProjectsComponent,
     PublicationsComponent,
+    FormationComponent,
   ],
   imports: [
     BrowserModule,

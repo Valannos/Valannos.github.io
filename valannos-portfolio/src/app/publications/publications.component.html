@@ -9,7 +9,7 @@
     <mat-list>
       <mat-list-item *ngFor="let pub of publications">
         <mat-icon mat-list-icon class="fas fa-flask"></mat-icon>
-        <h3 *ngIf="pub.link" mat-line><a [href]="pub.link">{{pub.name}}</a></h3>
+        <h3 *ngIf="pub.link" mat-line><a mat-raised-button color="primary" [href]="pub.link">{{pub.name}}</a></h3>
         <h3 *ngIf="!pub.link" mat-line>{{pub.name}}</h3>
         <p mat-line>{{pub.description}}</p>
         <p mat-line>{{pub.authors}}</p>
