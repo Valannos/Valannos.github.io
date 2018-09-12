@@ -1,0 +1,19 @@
+<mat-accordion >
+  <mat-expansion-panel >
+    <mat-expansion-panel-header class="panel-title-jobs" >
+      <mat-panel-title >
+            <mat-icon><i class="fas fa-university"></i></mat-icon>
+            Career
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item *ngFor="let job of jobs">
+        <mat-icon mat-list-icon [ngClass]="job.icon"></mat-icon>
+        <h3 mat-line><a [href]="job.link">{{job.company}}</a></h3>
+        <p mat-line>{{job.description}}</p>
+        <p mat-line>{{job.place}}</p>
+        <h3 mat-line id="job-dates">{{job.dates}}</h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -15,6 +15,12 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 
  .mat-card-root {
-  margin-bottom: 30px;
+  margin: 30px;
   background-color: beige;
+}
+.panel-title-techs {
+  background-color: rgb(155, 83, 83);
+}
+.panel-title-jobs {
+  background-color: rgb(114, 83, 155);
 }
