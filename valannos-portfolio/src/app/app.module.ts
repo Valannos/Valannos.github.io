@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TechsComponent } from './techs/techs.component';
 import { CareerComponent } from './career/career.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { PublicationsComponent } from './publications/publications.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ProjectsComponent } from './projects/projects.component';
     TechsComponent,
     CareerComponent,
     ProjectsComponent,
+    PublicationsComponent,
   ],
   imports: [
     BrowserModule,

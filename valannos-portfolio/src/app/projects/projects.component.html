@@ -1,16 +1,18 @@
 <mat-accordion>
   <mat-expansion-panel>
-    <mat-expansion-panel-header class="panel-title-jobs">
+    <mat-expansion-panel-header class="panel-title-projects">
       <mat-panel-title>
         <mat-icon><i class="fas fa-code"></i></mat-icon>
         Projects
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-list>
-    <mat-list-item *ngFor="let project of projects">
-      <mat-icon mat-list-icon [ngClass]="project.icon"></mat-icon>
-      <h3 mat-line><a [href]="project.link">{{project.name}}</a></h3>
-    </mat-list-item>
-  </mat-list>
+      <mat-list-item *ngFor="let project of projects">
+        <mat-icon *ngFor="let icon of project.icon" mat-list-icon [ngClass]="icon"></mat-icon>
+        <h3 mat-line><a [href]="project.link">{{project.name}}</a></h3>
+        <p mat-line>{{project.description}}</p>
+        <p mat-line>{{project.details}}</p>
+      </mat-list-item>
+    </mat-list>
   </mat-expansion-panel>
 </mat-accordion>
